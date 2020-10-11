@@ -1,11 +1,17 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: "Coverage Reporter"
+description: "Comments a pull request with code coverage report"
+author: "Tonye Jack"
+branding:
+  icon: "check"
+  color: "green"
 inputs:
-  milliseconds: # change this
+  token:
+    description: 'GITHUB_TOKEN or a Repo scoped PAT'
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    default: ${{ github.token }}
+  coverage-command:
+    description: "Specify a coverage command to run the test."
+    required: true
 runs:
   using: 'node12'
   main: 'dist/index.js'

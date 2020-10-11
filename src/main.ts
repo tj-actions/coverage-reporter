@@ -1,19 +1,31 @@
-import * as core from '@actions/core'
-import {wait} from './wait'
+import core from '@actions/core'
 
-async function run(): Promise<void> {
+import {execSync} from 'child_process'
+
+import github from '@actions/github'
+
+const main = async (): Promise<void> => {
+  const githubToken = core.getInput('token')
+  const covCommand = core.getInput('coverage-command')
+
+  const octokit = github.getOctokit(githubToken)
+  const prNumber = github.context.payload.pull_request?.number
+
+  const codeCoverage = execSync(covCommand).toString()
+
+  const commentBody = `<details><summary>Coverage report</summary><p><pre>${codeCoverage}</pre></p></details>`
+
   try {
-    const ms: string = core.getInput('milliseconds')
-    core.debug(`Waiting ${ms} milliseconds ...`) // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
-
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
-
-    core.setOutput('time', new Date().toTimeString())
-  } catch (error) {
-    core.setFailed(error.message)
+    await octokit.issues.createComment({
+      ...github.context.repo,
+      body: commentBody,
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      issue_number: prNumber!
+    })
+    core.debug('Published report')
+  } catch (err) {
+    core.setFailed(err.message)
   }
 }
 
-run()
+main()
