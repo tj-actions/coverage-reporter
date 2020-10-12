@@ -28,4 +28,10 @@ const main = async (): Promise<void> => {
   }
 }
 
-main()
+;(async () => {
+  try {
+    await main()
+  } catch (err) {
+    core.setFailed(err.message)
+  }
+})()
