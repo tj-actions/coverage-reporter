@@ -30,6 +30,9 @@ jobs:
         if: steps.changed_files.outputs.files_changed == 'true'
         with:
           signoff: true
+          title: "Changes to dist"
+          commit-message: "Update dist"
+          body: "Changes to dist"
           reviewers: jackton1
           delete-branch: true
           branch: build-assets-patch
