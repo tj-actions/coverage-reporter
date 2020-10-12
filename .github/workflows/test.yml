@@ -1,13 +1,8 @@
 name: 'build-test'
 on: # rebuild any PRs and main branch changes
-  pull_request:
-    branches:
-      - main
-      - "**"
   push:
     branches:
       - main
-      - "**"
 
 jobs:
   build: # make sure build/ci work properly
@@ -29,18 +24,18 @@ jobs:
         id: changed_files
         with:
           files: dist
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+      - name: Commit files
         if: steps.changed_files.outputs.files_changed == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add dist
+          git commit -m "Modified dist assets." -a
+      - name: Push changes
+        if: steps.changed_files.outputs.files_changed == 'true'
+        uses: ad-m/github-push-action@master
         with:
-          signoff: true
-          title: "Changes to dist"
-          commit-message: "Update dist"
-          body: "Changes to dist"
-          reviewers: jackton1
-          delete-branch: true
-          branch: build-assets-patch
-          path: .
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload build assets
         uses: actions/upload-artifact@v2
         with:
