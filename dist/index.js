@@ -1419,32 +1419,41 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const child_process_1 = __webpack_require__(129);
 const github = __importStar(__webpack_require__(438));
 const core = __importStar(__webpack_require__(186));
-const main = () => __awaiter(void 0, void 0, void 0, function* () {
+function run() {
     var _a;
-    const githubToken = core.getInput('token');
-    const covCommand = core.getInput('coverage-command');
-    const octokit = github.getOctokit(githubToken);
-    const prNumber = (_a = github.context.payload.pull_request) === null || _a === void 0 ? void 0 : _a.number;
-    const codeCoverage = child_process_1.execSync(covCommand).toString();
-    const commentBody = `<details><summary>Coverage report</summary><p><pre>${codeCoverage}</pre></p></details>`;
-    try {
-        yield octokit.issues.createComment(Object.assign(Object.assign({}, github.context.repo), { body: commentBody, 
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            issue_number: prNumber }));
-        core.debug('Published report');
-    }
-    catch (err) {
-        core.setFailed(err.message);
-    }
-});
-(() => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        yield main();
-    }
-    catch (err) {
-        core.setFailed(err.message);
-    }
-}))();
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            if (core.isDebug()) {
+                core.info('Retrieving input values.');
+            }
+            const githubToken = core.getInput('token');
+            const covCommand = core.getInput('coverage-command');
+            if (core.isDebug()) {
+                core.info('Retrieved input values.');
+            }
+            const octokit = github.getOctokit(githubToken);
+            const prNumber = (_a = github.context.payload.pull_request) === null || _a === void 0 ? void 0 : _a.number;
+            if (!prNumber) {
+                core.warning('Skipped collecting coverage report no pull request number found.');
+                return;
+            }
+            if (core.isDebug()) {
+                core.info(`Executing coverage command: ${covCommand}.`);
+            }
+            const codeCoverage = child_process_1.execSync(covCommand).toString();
+            const commentBody = `<details><summary>Coverage report</summary><p><pre>${codeCoverage}</pre></p></details>`;
+            if (core.isDebug()) {
+                core.info(`Creating a PR comment.`);
+            }
+            yield octokit.issues.createComment(Object.assign(Object.assign({}, github.context.repo), { body: commentBody, issue_number: prNumber }));
+            core.info('Published report');
+        }
+        catch (err) {
+            core.setFailed(err.message);
+        }
+    });
+}
+run();
 
 
 /***/ }),

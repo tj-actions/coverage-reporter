@@ -4,7 +4,6 @@ on: # rebuild any PRs and main branch changes
   push:
     branches:
       - main
-      - 'releases/*'
 
 jobs:
   build: # make sure build/ci work properly
@@ -21,10 +20,23 @@ jobs:
           yarn
       - run: |
           yarn all
+      - name: Upload math result for job 1
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-assets
+          path: dist
   test: # make sure the action works on a clean machine without building
     runs-on: ubuntu-latest
+    needs: build
     steps:
-      - uses: actions/checkout@v2
+      - name: Download math result for job 1
+        uses: actions/download-artifact@v2
+        with:
+          name: build-assets
       - uses: ./
         with:
           coverage-command: 'echo "test"'
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        signoff: true
+        reviewers: jackton1
