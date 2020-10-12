@@ -82,7 +82,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getOctokitOptions = exports.GitHub = exports.context = void 0;
-const Context = __importStar(__webpack_require__(53));
+const Context = __importStar(__webpack_require__(87));
 const Utils = __importStar(__webpack_require__(914));
 // octokit + plugins
 const core_1 = __webpack_require__(762);
@@ -1279,7 +1279,53 @@ exports.restEndpointMethods = restEndpointMethods;
 
 /***/ }),
 
-/***/ 53:
+/***/ 62:
+/***/ (function(__unusedmodule, exports) {
+
+"use strict";
+
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+/*!
+ * is-plain-object <https://github.com/jonschlinkert/is-plain-object>
+ *
+ * Copyright (c) 2014-2017, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+function isObject(o) {
+  return Object.prototype.toString.call(o) === '[object Object]';
+}
+
+function isPlainObject(o) {
+  var ctor,prot;
+
+  if (isObject(o) === false) return false;
+
+  // If has modified constructor
+  ctor = o.constructor;
+  if (ctor === undefined) return true;
+
+  // If has modified prototype
+  prot = ctor.prototype;
+  if (isObject(prot) === false) return false;
+
+  // If constructor does not have an Object-specific method
+  if (prot.hasOwnProperty('isPrototypeOf') === false) {
+    return false;
+  }
+
+  // Most likely a plain Object
+  return true;
+}
+
+exports.isPlainObject = isPlainObject;
+
+
+/***/ }),
+
+/***/ 87:
 /***/ (function(__unusedmodule, exports, __webpack_require__) {
 
 "use strict";
@@ -1287,7 +1333,7 @@ exports.restEndpointMethods = restEndpointMethods;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Context = void 0;
 const fs_1 = __webpack_require__(747);
-const os_1 = __webpack_require__(87);
+const os_1 = __webpack_require__(365);
 class Context {
     /**
      * Hydrate the context from the environment
@@ -1336,64 +1382,30 @@ exports.Context = Context;
 
 /***/ }),
 
-/***/ 62:
-/***/ (function(__unusedmodule, exports) {
-
-"use strict";
-
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-/*!
- * is-plain-object <https://github.com/jonschlinkert/is-plain-object>
- *
- * Copyright (c) 2014-2017, Jon Schlinkert.
- * Released under the MIT License.
- */
-
-function isObject(o) {
-  return Object.prototype.toString.call(o) === '[object Object]';
-}
-
-function isPlainObject(o) {
-  var ctor,prot;
-
-  if (isObject(o) === false) return false;
-
-  // If has modified constructor
-  ctor = o.constructor;
-  if (ctor === undefined) return true;
-
-  // If has modified prototype
-  prot = ctor.prototype;
-  if (isObject(prot) === false) return false;
-
-  // If constructor does not have an Object-specific method
-  if (prot.hasOwnProperty('isPrototypeOf') === false) {
-    return false;
-  }
-
-  // Most likely a plain Object
-  return true;
-}
-
-exports.isPlainObject = isPlainObject;
-
-
-/***/ }),
-
-/***/ 87:
-/***/ (function(module) {
-
-module.exports = require("os");
-
-/***/ }),
-
 /***/ 109:
 /***/ (function(__unusedmodule, exports, __webpack_require__) {
 
 "use strict";
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -1403,29 +1415,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __importDefault(__webpack_require__(186));
 const child_process_1 = __webpack_require__(129);
-const github_1 = __importDefault(__webpack_require__(438));
+const github = __importStar(__webpack_require__(438));
+const core = __importStar(__webpack_require__(186));
 const main = () => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
-    const githubToken = core_1.default.getInput('token');
-    const covCommand = core_1.default.getInput('coverage-command');
-    const octokit = github_1.default.getOctokit(githubToken);
-    const prNumber = (_a = github_1.default.context.payload.pull_request) === null || _a === void 0 ? void 0 : _a.number;
+    const githubToken = core.getInput('token');
+    const covCommand = core.getInput('coverage-command');
+    const octokit = github.getOctokit(githubToken);
+    const prNumber = (_a = github.context.payload.pull_request) === null || _a === void 0 ? void 0 : _a.number;
     const codeCoverage = child_process_1.execSync(covCommand).toString();
     const commentBody = `<details><summary>Coverage report</summary><p><pre>${codeCoverage}</pre></p></details>`;
     try {
-        yield octokit.issues.createComment(Object.assign(Object.assign({}, github_1.default.context.repo), { body: commentBody, 
+        yield octokit.issues.createComment(Object.assign(Object.assign({}, github.context.repo), { body: commentBody, 
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             issue_number: prNumber }));
-        core_1.default.debug('Published report');
+        core.debug('Published report');
     }
     catch (err) {
-        core_1.default.setFailed(err.message);
+        core.setFailed(err.message);
     }
 });
 (() => __awaiter(void 0, void 0, void 0, function* () {
@@ -1433,7 +1442,7 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
         yield main();
     }
     catch (err) {
-        core_1.default.setFailed(err.message);
+        core.setFailed(err.message);
     }
 }))();
 
@@ -1472,7 +1481,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const command_1 = __webpack_require__(351);
 const file_command_1 = __webpack_require__(717);
 const utils_1 = __webpack_require__(278);
-const os = __importStar(__webpack_require__(87));
+const os = __importStar(__webpack_require__(365));
 const path = __importStar(__webpack_require__(622));
 /**
  * The code to exit an action
@@ -2418,7 +2427,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const os = __importStar(__webpack_require__(87));
+const os = __importStar(__webpack_require__(365));
 const utils_1 = __webpack_require__(278);
 /**
  * Commands
@@ -2498,6 +2507,13 @@ module.exports = require("assert");
 
 /***/ }),
 
+/***/ 365:
+/***/ (function(module) {
+
+module.exports = require("os");
+
+/***/ }),
+
 /***/ 413:
 /***/ (function(module) {
 
@@ -2557,7 +2573,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getOctokit = exports.context = void 0;
-const Context = __importStar(__webpack_require__(53));
+const Context = __importStar(__webpack_require__(87));
 const utils_1 = __webpack_require__(30);
 exports.context = new Context.Context();
 /**
@@ -5124,7 +5140,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const fs = __importStar(__webpack_require__(747));
-const os = __importStar(__webpack_require__(87));
+const os = __importStar(__webpack_require__(365));
 const utils_1 = __webpack_require__(278);
 function issueCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
