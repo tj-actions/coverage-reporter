@@ -3,9 +3,11 @@ on: # rebuild any PRs and main branch changes
   pull_request:
     branches:
       - main
+      - "**"
   push:
     branches:
       - main
+      - "**"
 
 jobs:
   build: # make sure build/ci work properly
