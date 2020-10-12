@@ -42,3 +42,5 @@ jobs:
         with:
           signoff: true
           reviewers: jackton1
+          delete-branch: true
+          path: .
