@@ -20,23 +20,6 @@ jobs:
           yarn
       - run: |
           yarn all
-      - name: Upload build assets
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-assets
-          path: dist
-  test: # make sure the action works on a clean machine without building
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v2
-      - name: Download build assets
-        uses: actions/download-artifact@v2
-        with:
-          name: build-assets
-      - uses: ./
-        with:
-          coverage-command: 'echo "test"'
       - name: Verify Changed files
         uses: tj-actions/verify-changed-files@v5
         id: changed_files
@@ -56,3 +39,20 @@ jobs:
           delete-branch: true
           branch: build-assets-patch
           path: .
+      - name: Upload build assets
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-assets
+          path: dist
+  test: # make sure the action works on a clean machine without building
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download build assets
+        uses: actions/download-artifact@v2
+        with:
+          name: build-assets
+      - uses: ./
+        with:
+          coverage-command: 'echo "test"'
