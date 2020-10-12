@@ -20,7 +20,7 @@ jobs:
           yarn
       - run: |
           yarn all
-      - name: Upload math result for job 1
+      - name: Upload build assets
         uses: actions/upload-artifact@v2
         with:
           name: build-assets
