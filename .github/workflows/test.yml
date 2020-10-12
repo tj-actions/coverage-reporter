@@ -25,11 +25,6 @@ jobs:
         id: changed_files
         with:
           files: dist
-      - name: Commit changes
-        if: steps.changed_files.outputs.files_changed == 'true'
-        run: |
-          git add dist
-          git commit -m "Updated dist"
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         if: steps.changed_files.outputs.files_changed == 'true'
