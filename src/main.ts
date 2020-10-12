@@ -1,8 +1,8 @@
-import core from '@actions/core'
-
 import {execSync} from 'child_process'
 
-import github from '@actions/github'
+import * as github from '@actions/github'
+
+import * as core from '@actions/core'
 
 const main = async (): Promise<void> => {
   const githubToken = core.getInput('token')
