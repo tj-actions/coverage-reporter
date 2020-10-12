@@ -1,4 +1,4 @@
-name: "Coverage Reporter"
+name: "coverage reporter"
 description: "Comments a pull request with code coverage report"
 author: "Tonye Jack"
 branding:
