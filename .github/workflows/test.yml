@@ -18,6 +18,14 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+      - name: Config
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+      - name: Pull files
+        run: |
+          git config pull.rebase true
+          git pull
       - run: |
           yarn
       - run: |
@@ -30,10 +38,6 @@ jobs:
       - name: Commit files
         if: steps.changed_files.outputs.files_changed == 'true'
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git config pull.rebase true
-          git pull
           git add dist
           git commit -m "Modified dist assets."
       - name: Push changes
