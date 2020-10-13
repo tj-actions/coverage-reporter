@@ -14,7 +14,7 @@ Usage
     steps:
       - uses: actions/checkout@v2
       - name: Code coverage-reporter
-        uses: tj-actions/coverage-reporter@v1
+        uses: tj-actions/coverage-reporter@v2
         with:
           coverage-command: 'python -m coverage report'
 ```
@@ -26,7 +26,7 @@ Usage
     steps:
       - uses: actions/checkout@v2
       - name: Code coverage-reporter
-        uses: tj-actions/coverage-reporter@v1
+        uses: tj-actions/coverage-reporter@v2
         with:
           coverage-command: "nyc --reporter=text mocha --exclude='fixtures' __tests__/*.js"
 ```
