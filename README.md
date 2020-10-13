@@ -12,7 +12,7 @@ Usage
 ```yaml
 ...
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Code coverage-reporter
         uses: tj-actions/coverage-reporter@v2
         with:
@@ -24,7 +24,7 @@ Usage
 ```yaml
 ...
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Code coverage-reporter
         uses: tj-actions/coverage-reporter@v2
         with:
