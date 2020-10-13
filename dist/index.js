@@ -1443,7 +1443,7 @@ function run() {
             const codeCoverage = child_process_1.execSync(covCommand).toString();
             const commentBody = `<details><summary>Coverage report</summary><p><pre>${codeCoverage}</pre></p></details>`;
             if (core.isDebug()) {
-                core.info(`Commenting on PR.`);
+                core.info("Creating a PR comment.");
             }
             yield octokit.issues.createComment(Object.assign(Object.assign({}, github.context.repo), { body: commentBody, issue_number: prNumber }));
             core.info('Published report');
