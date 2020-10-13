@@ -35,7 +35,7 @@ async function run(): Promise<void> {
     const commentBody = `<details><summary>Coverage report</summary><p><pre>${codeCoverage}</pre></p></details>`
 
     if (core.isDebug()) {
-      core.info(`Commenting on PR.`)
+      core.info("Creating a PR comment.")
     }
 
     await octokit.issues.createComment({
