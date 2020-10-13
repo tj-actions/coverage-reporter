@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
       - uses: actions/cache@v2
         with:
           path: ~/.npm
@@ -30,7 +33,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add dist
-          git commit -m "Modified dist assets." -a
+          git commit -m "Modified dist assets."
       - name: Push changes
         if: steps.changed_files.outputs.files_changed == 'true'
         uses: ad-m/github-push-action@master
