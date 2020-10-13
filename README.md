@@ -4,6 +4,8 @@ coverage-reporter
 -----------------
 Display Coverage reports on a Pull Request.
 
+![](sample.png)
+
 Usage
 -----
 
