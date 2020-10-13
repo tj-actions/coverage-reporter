@@ -40,7 +40,7 @@ async function run(): Promise<void> {
     `
 
     if (core.isDebug()) {
-      core.info("Creating a PR comment.")
+      core.info('Creating a PR comment.')
     }
 
     await octokit.issues.createComment({
