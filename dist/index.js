@@ -1441,12 +1441,7 @@ function run() {
                 core.info(`Executing coverage command: ${covCommand}.`);
             }
             const codeCoverage = child_process_1.execSync(covCommand).toString();
-            const commentBody = `
-    <details>
-    <summary>Coverage report</summary> 
-    \`\`\`bash script ${codeCoverage} \`\`\`
-    </details>
-    `;
+            const commentBody = `<details><summary>Coverage report</summary> \`\`\`bash script ${codeCoverage} \`\`\` </details>`;
             if (core.isDebug()) {
                 core.info('Creating a PR comment.');
             }
