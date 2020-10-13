@@ -32,7 +32,7 @@ async function run(): Promise<void> {
 
     const codeCoverage = execSync(covCommand).toString()
 
-    const commentBody = `<details><summary>Coverage report</summary>\n \`\`\`bash script \n ${codeCoverage} \n \`\`\` \n </details>`
+    const commentBody = `<details><summary>Coverage report</summary>\n\n\`\`\`bash script \n ${codeCoverage} \n\`\`\` \n</details>`
 
     if (core.isDebug()) {
       core.info('Creating a PR comment.')
