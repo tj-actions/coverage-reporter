@@ -21,11 +21,16 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+      - name: Get branch names
+        id: branch-name
+        uses: tj-actions/branch-names@v2.2
       - name: Config
+        if: ${{ steps.branch-name.outputs.is_default }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
       - name: Pull files
+        if: ${{ steps.branch-name.outputs.is_default }}
         run: |
           git config pull.rebase true
           git pull
@@ -48,7 +53,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+          branch: ${{ steps.branch-name.outputs.current_branch }}
       - name: Upload build assets
         uses: actions/upload-artifact@v2
         with:
