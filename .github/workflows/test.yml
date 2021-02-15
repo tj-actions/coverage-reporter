@@ -25,12 +25,12 @@ jobs:
         id: branch-name
         uses: tj-actions/branch-names@v2.2
       - name: Config
-        if: ${{ steps.branch-name.outputs.is_default }}
+        if: steps.branch-name.outputs.is_default == 'true'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
       - name: Pull files
-        if: ${{ steps.branch-name.outputs.is_default }}
+        if: steps.branch-name.outputs.is_default == 'true'
         run: |
           git config pull.rebase true
           git pull
