@@ -3,7 +3,7 @@ description: "Comments a pull request with code coverage report"
 author: "Tonye Jack"
 branding:
   icon: "check"
-  color: "green"
+  color: "white"
 inputs:
   token:
     description: 'GITHUB_TOKEN or a Repo scoped PAT'
