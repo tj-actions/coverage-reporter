@@ -41,8 +41,8 @@ jobs:
         if: steps.changed_files.outputs.files_changed == 'true'
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ steps.branch-name.outputs.current_branch }}
+          github_token: ${{ secrets.PAT_TOKEN }}
+          branch: ${{ github.head_ref }}
       - name: Upload build assets
         uses: actions/upload-artifact@v2
         with:
