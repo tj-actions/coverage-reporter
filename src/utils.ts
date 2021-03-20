@@ -10,8 +10,7 @@ export async function getPreviousComment(
     owner: string
     repo: string
   },
-  issue_number: number,
-  header: string
+  issue_number: number
 ): Promise<{body?: string; id: number} | undefined> {
 
   const {data: comments} = await octokit.issues.listComments({
@@ -30,7 +29,6 @@ export async function updateComment(
   },
   comment_id: number,
   body: string,
-  header: string,
   previousBody?: string
 ): Promise<void> {
   if (!body && !previousBody)
@@ -41,7 +39,7 @@ export async function updateComment(
     comment_id,
     body: previousBody
       ? `${previousBody}\n${body}`
-      : `${body}\n${headerComment(header)}`
+      : `${body}\n${HEADER}`
   })
 };
 
@@ -54,7 +52,6 @@ export async function createComment(
   },
   issue_number: number,
   body: string,
-  header: string,
   previousBody?: string
 ): Promise<void> {
   if (!body && !previousBody)
@@ -65,6 +62,6 @@ export async function createComment(
     issue_number,
     body: previousBody
       ? `${previousBody}\n${body}`
-      : `${body}\n${headerComment(header)}`
+      : `${body}\n${HEADER}`
   })
 }
