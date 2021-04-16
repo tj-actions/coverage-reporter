@@ -1,11 +1,10 @@
 {
   "extends": [
-    "config:base",
-    "schedule:weekends"
+    "config:base"
   ],
   "enabled": true,
   "prHourlyLimit": 10,
-  "prConcurrentLimit": 2,
+  "prConcurrentLimit": 5,
   "rebaseWhen": "behind-base-branch",
   "addLabels": [
     "dependencies"
