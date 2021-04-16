@@ -23,6 +23,7 @@
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
+      "rebaseWhen": "behind-base-branch",
       "addLabels": [
         "automerge"
       ]
