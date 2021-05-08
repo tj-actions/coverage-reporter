@@ -59,7 +59,7 @@ jobs:
           name: build-assets
       - name: Get branch names
         id: branch-name
-        uses: tj-actions/branch-names@v3.6
+        uses: tj-actions/branch-names@v4
       - uses: ./
         if: steps.branch-name.outputs.is_default == 'false'
         with:
