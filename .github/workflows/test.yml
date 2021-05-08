@@ -61,7 +61,6 @@ jobs:
         id: branch-name
         uses: tj-actions/branch-names@v4
       - uses: ./
-        if: steps.branch-name.outputs.is_default == 'false'
+        if: steps.branch-name.outputs.is_default == 'false' && github.actor != 'dependabot[bot]' && github.actor != 'dependabot'
         with:
-          token: ${{ github.token }}
           coverage-command: 'echo "test"'
