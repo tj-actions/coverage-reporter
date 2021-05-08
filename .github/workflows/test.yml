@@ -63,5 +63,5 @@ jobs:
       - uses: ./
         if: steps.branch-name.outputs.is_default == 'false'
         with:
-          token: ${{ secrets.PAT_TOKEN }}
+          token: ${{ github.token }}
           coverage-command: 'echo "test"'
