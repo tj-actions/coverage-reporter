@@ -38,7 +38,7 @@ async function run(): Promise<void> {
       core.info('Creating a PR comment.')
     }
 
-    await octokit.issues.createComment({
+    await octokit.rest.issues.createComment({
       ...github.context.repo,
       body: commentBody,
       issue_number: prNumber
