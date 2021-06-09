@@ -1,13 +1,12 @@
-[![build-test](https://github.com/tj-actions/coverage-reporter/workflows/build-test/badge.svg)](https://github.com/tj-actions/coverage-reporter/actions?query=workflow%3Abuild-test) [![Total alerts](https://img.shields.io/lgtm/alerts/g/tj-actions/coverage-reporter.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/tj-actions/coverage-reporter/alerts/) [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/tj-actions/coverage-reporter.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/tj-actions/coverage-reporter/context:javascript) [![Public workflows that use this action.](https://img.shields.io/endpoint?url=https%3A%2F%2Fapi-tj-actions1.vercel.app%2Fapi%2Fgithub-actions%2Fused-by%3Faction%3Dtj-actions%2Fcoverage-reporter%26badge%3Dtrue)](https://github.com/search?o=desc&q=tj-actions+coverage-reporter+path%3A.github%2Fworkflows+language%3AYAML&s=&type=Code)
+[![build-test](https://github.com/tj-actions/coverage-reporter/workflows/build-test/badge.svg)](https://github.com/tj-actions/coverage-reporter/actions?query=workflow%3Abuild-test) [![Total alerts](https://img.shields.io/lgtm/alerts/g/tj-actions/coverage-reporter.svg?logo=lgtm\&logoWidth=18)](https://lgtm.com/projects/g/tj-actions/coverage-reporter/alerts/) [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/tj-actions/coverage-reporter.svg?logo=lgtm\&logoWidth=18)](https://lgtm.com/projects/g/tj-actions/coverage-reporter/context:javascript) [![Public workflows that use this action.](https://img.shields.io/endpoint?url=https%3A%2F%2Fapi-tj-actions1.vercel.app%2Fapi%2Fgithub-actions%2Fused-by%3Faction%3Dtj-actions%2Fcoverage-reporter%26badge%3Dtrue)](https://github.com/search?o=desc\&q=tj-actions+coverage-reporter+path%3A.github%2Fworkflows+language%3AYAML\&s=\&type=Code)
 
-coverage-reporter
------------------
+## coverage-reporter
+
 Display Coverage reports on a Pull Request.
 
 ![](sample.png)
 
-Usage
------
+## Usage
 
 [Coverage.py](https://github.com/nedbat/coveragepy)
 
@@ -33,12 +32,12 @@ Usage
           coverage-command: "nyc --reporter=text mocha --exclude='fixtures' __tests__/*.js"
 ```
 
-* Free software: [MIT license](LICENSE)
+*   Free software: [MIT license](LICENSE)
 
 If you feel generous and want to show some extra appreciation:
 
 [![Buy me a coffee][buymeacoffee-shield]][buymeacoffee]
 
 [buymeacoffee]: https://www.buymeacoffee.com/jackton1
-[buymeacoffee-shield]: https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png
 
+[buymeacoffee-shield]: https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png
