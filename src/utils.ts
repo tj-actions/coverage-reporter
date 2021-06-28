@@ -13,7 +13,7 @@ export async function getPreviousComment(
   issue_number: number
 ): Promise<{body?: string; id: number} | undefined> {
 
-  const {data: comments} = await octokit.issues.listComments({
+  const {data: comments} = await octokit.rest.issues.listComments({
     ...repo,
     issue_number
   })
@@ -34,7 +34,7 @@ export async function updateComment(
   if (!body && !previousBody)
     return core.warning('Comment body cannot be blank')
 
-  await octokit.issues.updateComment({
+  await octokit.rest.issues.updateComment({
     ...repo,
     comment_id,
     body: previousBody
@@ -57,7 +57,7 @@ export async function createComment(
   if (!body && !previousBody)
     return core.warning('Comment body cannot be blank')
 
-  await octokit.issues.createComment({
+  await octokit.rest.issues.createComment({
     ...repo,
     issue_number,
     body: previousBody
