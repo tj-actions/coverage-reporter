@@ -29,7 +29,6 @@ export async function updateComment(
   },
   comment_id: number,
   body: string,
-  previousBody?: string
 ): Promise<void> {
   if (!body && !previousBody)
     return core.warning('Comment body cannot be blank')
@@ -37,9 +36,7 @@ export async function updateComment(
   await octokit.rest.issues.updateComment({
     ...repo,
     comment_id,
-    body: previousBody
-      ? `${previousBody}\n${body}`
-      : `${body}\n${HEADER}`
+    body: `${body}\n${HEADER}`,
   })
 };
 
@@ -52,7 +49,6 @@ export async function createComment(
   },
   issue_number: number,
   body: string,
-  previousBody?: string
 ): Promise<void> {
   if (!body && !previousBody)
     return core.warning('Comment body cannot be blank')
@@ -60,8 +56,6 @@ export async function createComment(
   await octokit.rest.issues.createComment({
     ...repo,
     issue_number,
-    body: previousBody
-      ? `${previousBody}\n${body}`
-      : `${body}\n${HEADER}`
+    body: `${body}\n${HEADER}`,
   })
 }
