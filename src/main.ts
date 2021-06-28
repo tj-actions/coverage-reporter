@@ -49,7 +49,6 @@ async function run(): Promise<void> {
          repo,
          previousComment.id,
          commentBody,
-         previousComment.body,
       )
     } else {
       await createComment(
