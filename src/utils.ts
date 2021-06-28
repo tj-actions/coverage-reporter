@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 import {GitHub} from '@actions/github/lib/utils';
 
-export const HEADER = "[//]: # (coverage-start)";
+export const HEADER = "<!-- Coverage Report -->";
 
 
 export async function getPreviousComment(
@@ -29,17 +29,14 @@ export async function updateComment(
   },
   comment_id: number,
   body: string,
-  previousBody?: string
 ): Promise<void> {
-  if (!body && !previousBody)
+  if (!body)
     return core.warning('Comment body cannot be blank')
 
   await octokit.rest.issues.updateComment({
     ...repo,
     comment_id,
-    body: previousBody
-      ? `${previousBody}\n${body}`
-      : `${body}\n${HEADER}`
+    body: `${body}\n${HEADER}`,
   })
 };
 
@@ -52,16 +49,13 @@ export async function createComment(
   },
   issue_number: number,
   body: string,
-  previousBody?: string
 ): Promise<void> {
-  if (!body && !previousBody)
+  if (!body)
     return core.warning('Comment body cannot be blank')
 
   await octokit.rest.issues.createComment({
     ...repo,
     issue_number,
-    body: previousBody
-      ? `${previousBody}\n${body}`
-      : `${body}\n${HEADER}`
+    body: `${body}\n${HEADER}`,
   })
 }
