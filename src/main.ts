@@ -47,7 +47,7 @@ async function run(): Promise<void> {
       await updateComment(
          octokit,
          repo,
-         previousComment.comment_id,
+         previousComment.id,
          commentBody,
          previousComment.body,
       )
