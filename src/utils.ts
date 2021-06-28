@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 import {GitHub} from '@actions/github/lib/utils';
 
-export const HEADER = "[//]: # (coverage-start)";
+export const HEADER = "<!-- Coverage Report -->";
 
 
 export async function getPreviousComment(
