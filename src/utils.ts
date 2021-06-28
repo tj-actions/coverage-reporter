@@ -30,7 +30,7 @@ export async function updateComment(
   comment_id: number,
   body: string,
 ): Promise<void> {
-  if (!body && !previousBody)
+  if (!body)
     return core.warning('Comment body cannot be blank')
 
   await octokit.rest.issues.updateComment({
@@ -50,7 +50,7 @@ export async function createComment(
   issue_number: number,
   body: string,
 ): Promise<void> {
-  if (!body && !previousBody)
+  if (!body)
     return core.warning('Comment body cannot be blank')
 
   await octokit.rest.issues.createComment({
