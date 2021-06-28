@@ -68,7 +68,7 @@ function run() {
             const repo = Object.assign({}, github.context.repo);
             const previousComment = yield utils_1.getPreviousComment(octokit, repo, prNumber);
             if (typeof previousComment !== 'undefined') {
-                yield utils_1.updateComment(octokit, repo, previousComment.id, commentBody, previousComment.body);
+                yield utils_1.updateComment(octokit, repo, previousComment.id, commentBody);
             }
             else {
                 yield utils_1.createComment(octokit, repo, prNumber, commentBody);
@@ -129,24 +129,20 @@ function getPreviousComment(octokit, repo, issue_number) {
     });
 }
 exports.getPreviousComment = getPreviousComment;
-function updateComment(octokit, repo, comment_id, body, previousBody) {
+function updateComment(octokit, repo, comment_id, body) {
     return __awaiter(this, void 0, void 0, function* () {
-        if (!body && !previousBody)
+        if (!body)
             return core.warning('Comment body cannot be blank');
-        yield octokit.rest.issues.updateComment(Object.assign(Object.assign({}, repo), { comment_id, body: previousBody
-                ? `${previousBody}\n${body}`
-                : `${body}\n${exports.HEADER}` }));
+        yield octokit.rest.issues.updateComment(Object.assign(Object.assign({}, repo), { comment_id, body: `${body}\n${exports.HEADER}` }));
     });
 }
 exports.updateComment = updateComment;
 ;
-function createComment(octokit, repo, issue_number, body, previousBody) {
+function createComment(octokit, repo, issue_number, body) {
     return __awaiter(this, void 0, void 0, function* () {
-        if (!body && !previousBody)
+        if (!body)
             return core.warning('Comment body cannot be blank');
-        yield octokit.rest.issues.createComment(Object.assign(Object.assign({}, repo), { issue_number, body: previousBody
-                ? `${previousBody}\n${body}`
-                : `${body}\n${exports.HEADER}` }));
+        yield octokit.rest.issues.createComment(Object.assign(Object.assign({}, repo), { issue_number, body: `${body}\n${exports.HEADER}` }));
     });
 }
 exports.createComment = createComment;
