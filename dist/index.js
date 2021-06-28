@@ -121,7 +121,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.createComment = exports.updateComment = exports.getPreviousComment = exports.HEADER = void 0;
 const core = __importStar(__nccwpck_require__(186));
-exports.HEADER = "[//]: # (coverage-start)";
+exports.HEADER = "<!-- Coverage Report -->";
 function getPreviousComment(octokit, repo, issue_number) {
     return __awaiter(this, void 0, void 0, function* () {
         const { data: comments } = yield octokit.rest.issues.listComments(Object.assign(Object.assign({}, repo), { issue_number }));
