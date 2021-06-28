@@ -4,6 +4,8 @@ import * as github from '@actions/github'
 
 import * as core from '@actions/core'
 
+import { getPreviousComment, updateComment, createComment } from './utils'
+
 async function run(): Promise<void> {
   try {
     if (core.isDebug()) {
@@ -37,12 +39,27 @@ async function run(): Promise<void> {
     if (core.isDebug()) {
       core.info('Creating a PR comment.')
     }
+    
+    const repo = { ...github.context.repo }
+    const previousComment = await getPreviousComment(octokit, repo, prNumber)
+    
+    if (typeof previousComment !== 'undefined') {
+      await updateComment(
+         octokit,
+         repo,
+         previousComment.comment_id,
+         commentBody,
+         previousComment.body,
+      )
+    } else {
+      await createComment(
+         octokit,
+         repo,
+         prNumber,
+         commentBody,
+      )
+    }
 
-    await octokit.rest.issues.createComment({
-      ...github.context.repo,
-      body: commentBody,
-      issue_number: prNumber
-    })
     core.info('Published report')
   } catch (err) {
     core.setFailed(err.message)
