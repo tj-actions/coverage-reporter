@@ -1,7 +1,7 @@
 name: 'build-test'
 on: # rebuild any PRs and main branch changes
   pull_request:
-    branches: 
+    branches:
       - main
   push:
     branches:
@@ -29,14 +29,16 @@ jobs:
         uses: tj-actions/verify-changed-files@v7
         id: changed_files
         with:
-          files: dist
+          files: |
+            src
+            dist
       - name: Commit files
         if: steps.changed_files.outputs.files_changed == 'true'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add dist
-          git commit -m "Modified dist assets."
+          git add src dist
+          git commit -m "Added missing changes and modified dist assets."
       - name: Push changes
         if: steps.changed_files.outputs.files_changed == 'true'
         uses: ad-m/github-push-action@master
