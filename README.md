@@ -8,7 +8,7 @@ Display Coverage reports on a Pull Request.
 
 ## Usage
 
-[Coverage.py](https://github.com/nedbat/coveragepy)
+[coverage.py](https://github.com/nedbat/coveragepy)
 
 ```yaml
 ...
