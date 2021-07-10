@@ -64,7 +64,7 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v2
-]
+
       - name: Download build assets
         uses: actions/download-artifact@v2
         with:
