@@ -51,17 +51,19 @@ async function run(): Promise<void> {
     }
 
     const baseSha = context.payload.pull_request?.base.sha
-    const beforeSha = context.payload.before
-    const afterSha = context.payload.after
+    const sha = context.payload.sha
 
     core.info(`Base SHA: ${baseSha}`)
-    core.info(`before SHA: ${beforeSha}`)
-    core.info(`after SHA: ${afterSha}`)
+    core.info(`Current SHA: ${sha}`)
+    
+    const basheHead = `${baseSha}...${sha}`
 
-    //     const response = octokit.rest.repos.compareCommitsWithBasehead({
-    //       repo,
-    //       basehead,
-    //     });
+    const response = octokit.rest.repos.compareCommitsWithBasehead({
+      repo,
+      basehead,
+    });
+
+    core.info(`Response: ${JSON.stringify(response)}`)
 
     core.info('Published report')
   } catch (err) {
