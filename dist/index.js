@@ -78,7 +78,7 @@ function run() {
             const sha = context.payload.sha;
             core.info(`Base SHA: ${baseSha}`);
             core.info(`Current SHA: ${sha}`);
-            const response = octokit.rest.repos.compareCommitsWithBasehead(Object.assign(Object.assign({}, repo), { basehead: `${baseSha}...${sha}` }));
+            const response = yield octokit.rest.repos.compareCommitsWithBasehead(Object.assign(Object.assign({}, repo), { basehead: `${baseSha}...${sha}` }));
             core.info(`Response: ${JSON.stringify(response)}`);
             core.info('Published report');
         }
