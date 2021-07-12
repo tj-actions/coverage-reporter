@@ -55,12 +55,10 @@ async function run(): Promise<void> {
 
     core.info(`Base SHA: ${baseSha}`)
     core.info(`Current SHA: ${sha}`)
-    
-    const basheHead = `${baseSha}...${sha}`
 
     const response = octokit.rest.repos.compareCommitsWithBasehead({
-      repo,
-      basehead,
+      ...repo,
+      basehead: `${baseSha}...${sha}`
     });
 
     core.info(`Response: ${JSON.stringify(response)}`)
