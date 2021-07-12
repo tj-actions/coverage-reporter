@@ -17,7 +17,8 @@ async function run(): Promise<void> {
     if (core.isDebug()) {
       core.info('Retrieved input values.')
     }
-
+    
+    const context = github.context
     const octokit = github.getOctokit(githubToken)
     const prNumber = github.context.payload.pull_request?.number
 
@@ -48,6 +49,19 @@ async function run(): Promise<void> {
     } else {
       await createComment(octokit, repo, prNumber, commentBody)
     }
+    
+    const baseSha = context.payload.pull_request?.base.sha;
+    const beforeSha = context.payload.before;
+    const afterSha = context.payload.after;
+
+    core.info(`Base SHA: ${baseSha}`)
+    core.info(`before SHA: ${beforeSha}`)
+    core.info(`after SHA: ${afterSha}`)
+
+//     const response = octokit.rest.repos.compareCommitsWithBasehead({
+//       repo,
+//       basehead,
+//     });
 
     core.info('Published report')
   } catch (err) {
