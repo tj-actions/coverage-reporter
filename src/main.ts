@@ -50,7 +50,7 @@ async function run(): Promise<void> {
       await createComment(octokit, repo, prNumber, commentBody)
     }
     
-    const baseSha = context.payload.pull_request.base.sha;
+    const baseSha = context.payload.pull_request?.base.sha;
     const beforeSha = context.payload.before;
     const afterSha = context.payload.after;
 
