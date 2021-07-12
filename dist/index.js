@@ -75,15 +75,11 @@ function run() {
                 yield utils_1.createComment(octokit, repo, prNumber, commentBody);
             }
             const baseSha = (_b = context.payload.pull_request) === null || _b === void 0 ? void 0 : _b.base.sha;
-            const beforeSha = context.payload.before;
-            const afterSha = context.payload.after;
+            const sha = context.payload.sha;
             core.info(`Base SHA: ${baseSha}`);
-            core.info(`before SHA: ${beforeSha}`);
-            core.info(`after SHA: ${afterSha}`);
-            //     const response = octokit.rest.repos.compareCommitsWithBasehead({
-            //       repo,
-            //       basehead,
-            //     });
+            core.info(`Current SHA: ${sha}`);
+            const response = octokit.rest.repos.compareCommitsWithBasehead(Object.assign(Object.assign({}, repo), { basehead: `${baseSha}...${sha}` }));
+            core.info(`Response: ${JSON.stringify(response)}`);
             core.info('Published report');
         }
         catch (err) {
