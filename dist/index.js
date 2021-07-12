@@ -40,7 +40,7 @@ const github = __importStar(__nccwpck_require__(438));
 const core = __importStar(__nccwpck_require__(186));
 const utils_1 = __nccwpck_require__(918);
 function run() {
-    var _a, _b;
+    var _a, _b, _c, _d;
     return __awaiter(this, void 0, void 0, function* () {
         try {
             if (core.isDebug()) {
@@ -75,10 +75,10 @@ function run() {
                 yield utils_1.createComment(octokit, repo, prNumber, commentBody);
             }
             const baseSha = (_b = context.payload.pull_request) === null || _b === void 0 ? void 0 : _b.base.sha;
-            const sha = context.payload.sha;
+            const headSha = (_d = (_c = context.payload.pull_request) === null || _c === void 0 ? void 0 : _c.head) === null || _d === void 0 ? void 0 : _d.sha;
             core.info(`Base SHA: ${baseSha}`);
-            core.info(`Current SHA: ${sha}`);
-            const response = yield octokit.rest.repos.compareCommitsWithBasehead(Object.assign(Object.assign({}, repo), { basehead: `${baseSha}...${sha}` }));
+            core.info(`Current SHA: ${headSha}`);
+            const response = yield octokit.rest.repos.compareCommitsWithBasehead(Object.assign(Object.assign({}, repo), { basehead: `${baseSha}...${headSha}` }));
             core.info(`Response: ${JSON.stringify(response)}`);
             core.info('Published report');
         }
