@@ -56,7 +56,7 @@ async function run(): Promise<void> {
     core.info(`Base SHA: ${baseSha}`)
     core.info(`Current SHA: ${sha}`)
 
-    const response = octokit.rest.repos.compareCommitsWithBasehead({
+    const response = await octokit.rest.repos.compareCommitsWithBasehead({
       ...repo,
       basehead: `${baseSha}...${sha}`
     })
