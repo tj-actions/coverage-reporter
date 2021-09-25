@@ -6,7 +6,6 @@ Display Coverage reports on a Pull Request.
 
 ![sample](https://user-images.githubusercontent.com/17484350/134744528-78d9b6bf-017d-42e3-9dc5-97a5fe47b30b.png)
 
-
 ## Usage
 
 [coverage.py](https://github.com/nedbat/coveragepy)
