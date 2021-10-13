@@ -51,7 +51,7 @@ async function run(): Promise<void> {
 
     core.info('Published report')
   } catch (err) {
-    core.setFailed(err.message)
+    core.setFailed((err instanceof Error).message)
   }
 }
 
