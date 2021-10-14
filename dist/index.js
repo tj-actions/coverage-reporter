@@ -60,18 +60,18 @@ function run() {
             if (core.isDebug()) {
                 core.info(`Executing coverage command: ${covCommand}.`);
             }
-            const codeCoverage = child_process_1.execSync(covCommand).toString();
+            const codeCoverage = (0, child_process_1.execSync)(covCommand).toString();
             const commentBody = `<details><summary>Coverage report</summary>\n\n\`\`\`bash script \n ${codeCoverage} \n\`\`\` \n</details>`;
             if (core.isDebug()) {
                 core.info('Creating a PR comment.');
             }
             const repo = Object.assign({}, github.context.repo);
-            const previousComment = yield utils_1.getPreviousComment(octokit, repo, prNumber);
+            const previousComment = yield (0, utils_1.getPreviousComment)(octokit, repo, prNumber);
             if (typeof previousComment !== 'undefined') {
-                yield utils_1.updateComment(octokit, repo, previousComment.id, commentBody);
+                yield (0, utils_1.updateComment)(octokit, repo, previousComment.id, commentBody);
             }
             else {
-                yield utils_1.createComment(octokit, repo, prNumber, commentBody);
+                yield (0, utils_1.createComment)(octokit, repo, prNumber, commentBody);
             }
             core.info('Published report');
         }
