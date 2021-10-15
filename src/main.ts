@@ -4,7 +4,7 @@ import * as core from '@actions/core'
 
 import {execSync} from 'child_process'
 
-import {getPreviousComment, updateComment, createComment} from './utils'
+import {createComment, getPreviousComment, updateComment} from './utils'
 
 async function run(): Promise<void> {
   try {
