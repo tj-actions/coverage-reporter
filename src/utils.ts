@@ -29,7 +29,7 @@ export async function updateComment(
 ): Promise<void> {
   if (!body) return core.warning('Comment body cannot be blank')
 
-  await octokit.rest.issues.updateComment({
+  return await octokit.rest.issues.updateComment({
     ...repo,
     comment_id,
     body: `${body}\n${HEADER}`
@@ -47,7 +47,7 @@ export async function createComment(
 ): Promise<void> {
   if (!body) return core.warning('Comment body cannot be blank')
 
-  await octokit.rest.issues.createComment({
+  return await octokit.rest.issues.createComment({
     ...repo,
     issue_number,
     body: `${body}\n${HEADER}`
