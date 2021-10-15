@@ -1,8 +1,8 @@
-import {execSync} from 'child_process'
-
 import * as github from '@actions/github'
 
 import * as core from '@actions/core'
+
+import {execSync} from 'child_process'
 
 import {getPreviousComment, updateComment, createComment} from './utils'
 
