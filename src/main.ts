@@ -48,7 +48,6 @@ async function run(): Promise<void> {
     } else {
       await createComment(octokit, repo, prNumber, commentBody)
     }
-
     core.info('Published report')
   } catch (err) {
     core.setFailed((err as Error).message)
