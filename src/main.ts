@@ -1,10 +1,8 @@
+import * as core from '@actions/core'
+import * as github from '@actions/github'
 import {execSync} from 'child_process'
 
-import * as github from '@actions/github'
-
-import * as core from '@actions/core'
-
-import {getPreviousComment, updateComment, createComment} from './utils'
+import {createComment, getPreviousComment, updateComment} from './utils'
 
 async function run(): Promise<void> {
   try {
@@ -48,7 +46,6 @@ async function run(): Promise<void> {
     } else {
       await createComment(octokit, repo, prNumber, commentBody)
     }
-
     core.info('Published report')
   } catch (err) {
     core.setFailed((err as Error).message)
