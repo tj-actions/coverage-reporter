@@ -33,6 +33,17 @@ Display Coverage reports on a Pull Request.
           coverage-command: "nyc --reporter=text mocha --exclude='fixtures' __tests__/*.js"
 ```
 
+## Inputs
+
+<!-- AUTO-DOC-INPUT:START - Do not remove or modify this section -->
+
+|      INPUT       |  TYPE  | REQUIRED |        DEFAULT        |                  DESCRIPTION                   |
+|------------------|--------|----------|-----------------------|------------------------------------------------|
+| coverage-command | string | true     |                       | Specify a coverage command to run<br>the test. |
+| token            | string | true     | `${{ github.token }}` | GITHUB_TOKEN or a Repo scoped PAT<br>          |
+
+<!-- AUTO-DOC-INPUT:END -->
+
 *   Free software: [MIT license](LICENSE)
 
 If you feel generous and want to show some extra appreciation:
