@@ -16,7 +16,7 @@ Display Coverage reports on a Pull Request.
     steps:
       - uses: actions/checkout@v3
       - name: Code coverage-reporter
-        uses: tj-actions/coverage-reporter@v5
+        uses: tj-actions/coverage-reporter@v5.1
         with:
           coverage-command: 'python -m coverage report'
 ```
@@ -28,7 +28,7 @@ Display Coverage reports on a Pull Request.
     steps:
       - uses: actions/checkout@v3
       - name: Code coverage-reporter
-        uses: tj-actions/coverage-reporter@v5
+        uses: tj-actions/coverage-reporter@v5.1
         with:
           coverage-command: "nyc --reporter=text mocha --exclude='fixtures' __tests__/*.js"
 ```
