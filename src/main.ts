@@ -1,10 +1,8 @@
+import * as core from '@actions/core'
+import * as github from '@actions/github'
 import {execSync} from 'child_process'
 
-import * as github from '@actions/github'
-
-import * as core from '@actions/core'
-
-import {getPreviousComment, updateComment, createComment} from './utils'
+import {createComment, getPreviousComment, updateComment} from './utils'
 
 async function run(): Promise<void> {
   try {
@@ -60,12 +58,11 @@ async function run(): Promise<void> {
       ...repo,
       basehead: `${baseSha}...${headSha}`
     })
-
     core.info(`Response: ${JSON.stringify(response)}`)
-
     core.info('Published report')
+
   } catch (err) {
-    core.setFailed(err.message)
+    core.setFailed((err as Error).message)
   }
 }
 

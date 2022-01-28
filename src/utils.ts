@@ -1,5 +1,7 @@
 import * as core from '@actions/core'
 import {GitHub} from '@actions/github/lib/utils'
+// eslint-disable-next-line import/named
+import {RestEndpointMethodTypes} from '@octokit/plugin-rest-endpoint-methods'
 
 export const HEADER = '<!-- Coverage Report -->'
 
@@ -26,10 +28,12 @@ export async function updateComment(
   },
   comment_id: number,
   body: string
-): Promise<void> {
+): Promise<
+  RestEndpointMethodTypes['issues']['updateComment']['response'] | void
+> {
   if (!body) return core.warning('Comment body cannot be blank')
 
-  await octokit.rest.issues.updateComment({
+  return await octokit.rest.issues.updateComment({
     ...repo,
     comment_id,
     body: `${body}\n${HEADER}`
@@ -44,10 +48,15 @@ export async function createComment(
   },
   issue_number: number,
   body: string
-): Promise<void> {
-  if (!body) return core.warning('Comment body cannot be blank')
+): Promise<
+  RestEndpointMethodTypes['issues']['createComment']['response'] | void
+> {
+  if (!body) {
+    const message = 'Comment body cannot be blank'
+    return core.warning(message)
+  }
 
-  await octokit.rest.issues.createComment({
+  return await octokit.rest.issues.createComment({
     ...repo,
     issue_number,
     body: `${body}\n${HEADER}`

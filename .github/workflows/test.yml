@@ -25,13 +25,21 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install
+          
+      - name: Run eslint on changed files
+        uses: tj-actions/eslint-changed-files@v8
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          config_path: ".eslintrc.json"
+          ignore_path: ".eslintignore"
+          extensions: "ts,tsx"
 
       - name: Run build
         run: |
           yarn all
 
       - name: Verify Changed files
-        uses: tj-actions/verify-changed-files@v7
+        uses: tj-actions/verify-changed-files@v8
         id: changed_files
         with:
           files: |
@@ -72,7 +80,7 @@ jobs:
 
       - name: Get branch names
         id: branch-name
-        uses: tj-actions/branch-names@v4
+        uses: tj-actions/branch-names@v5
 
       - uses: ./
         if: steps.branch-name.outputs.is_default == 'false' && github.actor != 'dependabot[bot]' && github.actor != 'dependabot'
