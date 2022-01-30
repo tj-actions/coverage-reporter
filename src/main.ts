@@ -60,7 +60,6 @@ async function run(): Promise<void> {
     })
     core.info(`Response: ${JSON.stringify(response)}`)
     core.info('Published report')
-
   } catch (err) {
     core.setFailed((err as Error).message)
   }
