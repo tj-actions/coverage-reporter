@@ -40,7 +40,7 @@ const github = __importStar(__nccwpck_require__(5438));
 const child_process_1 = __nccwpck_require__(2081);
 const utils_1 = __nccwpck_require__(918);
 function run() {
-    var _a;
+    var _a, _b, _c, _d;
     return __awaiter(this, void 0, void 0, function* () {
         try {
             if (core.isDebug()) {
@@ -51,6 +51,7 @@ function run() {
             if (core.isDebug()) {
                 core.info('Retrieved input values.');
             }
+            const context = github.context;
             const octokit = github.getOctokit(githubToken);
             const prNumber = (_a = github.context.payload.pull_request) === null || _a === void 0 ? void 0 : _a.number;
             if (!prNumber) {
@@ -73,6 +74,12 @@ function run() {
             else {
                 yield (0, utils_1.createComment)(octokit, repo, prNumber, commentBody);
             }
+            const baseSha = (_b = context.payload.pull_request) === null || _b === void 0 ? void 0 : _b.base.sha;
+            const headSha = (_d = (_c = context.payload.pull_request) === null || _c === void 0 ? void 0 : _c.head) === null || _d === void 0 ? void 0 : _d.sha;
+            core.info(`Base SHA: ${baseSha}`);
+            core.info(`Current SHA: ${headSha}`);
+            const response = yield octokit.rest.repos.compareCommitsWithBasehead(Object.assign(Object.assign({}, repo), { basehead: `${baseSha}...${headSha}` }));
+            core.info(`Response: ${JSON.stringify(response)}`);
             core.info('Published report');
         }
         catch (err) {
