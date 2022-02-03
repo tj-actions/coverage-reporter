@@ -37,10 +37,10 @@ Display Coverage reports on a Pull Request.
 
 <!-- AUTO-DOC-INPUT:START - Do not remove or modify this section -->
 
-|      INPUT       |  TYPE  | REQUIRED |        DEFAULT        |                  DESCRIPTION                   |
-|------------------|--------|----------|-----------------------|------------------------------------------------|
-| coverage-command | string | true     |                       | Specify a coverage command to<br>run the test. |
-| token            | string | true     | `${{ github.token }}` | GITHUB\_TOKEN or a Repo scoped<br>PAT           |
+|      INPUT       |  TYPE  | REQUIRED |         DEFAULT         |                  DESCRIPTION                   |
+|------------------|--------|----------|-------------------------|------------------------------------------------|
+| coverage-command | string | true     |                         | Specify a coverage command to<br>run the test. |
+| token            | string | true     | `"${{ github.token }}"` | GITHUB\_TOKEN or a Repo scoped<br>PAT           |
 
 <!-- AUTO-DOC-INPUT:END -->
 
