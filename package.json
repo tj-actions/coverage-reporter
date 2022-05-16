@@ -26,7 +26,7 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "1.8.2",
-    "@actions/github": "5.0.1"
+    "@actions/github": "5.0.3"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "3.2.0",
