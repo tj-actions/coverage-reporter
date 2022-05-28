@@ -1616,10 +1616,10 @@ eslint-plugin-import@^2.25.2:
     resolve "^1.22.0"
     tsconfig-paths "^3.14.1"
 
-eslint-plugin-jest@26.3.0:
-  version "26.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-26.3.0.tgz#541598dafe78580737046a270734a413415b0fa9"
-  integrity sha512-Nst+lIIzCwVap2zxzEv+c0+ESvubEu96SyYuByYMpSQhtKF31DqQQ5PTprT2zbBvSLBAhgDXYWo69p4n+Bc/Ew==
+eslint-plugin-jest@26.4.0:
+  version "26.4.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-26.4.0.tgz#f179e4d4ef74b7077926a07b3de7972fd2c95452"
+  integrity sha512-yb6b6GwudT/MZTYe8r37uxTAfqUR6DbHWd2ZST74AEZG9yMut94N4+z10KLFG+5hrkdYtwKgFqm8MaiLnRxfmQ==
   dependencies:
     "@typescript-eslint/utils" "^5.10.0"
 
