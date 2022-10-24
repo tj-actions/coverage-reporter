@@ -13,5 +13,5 @@ inputs:
     description: "Specify a coverage command to run the test."
     required: true
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'
