@@ -39,7 +39,7 @@ Display Coverage reports on a Pull Request.
 
 |      INPUT       |  TYPE  | REQUIRED |         DEFAULT         |                  DESCRIPTION                   |
 |------------------|--------|----------|-------------------------|------------------------------------------------|
-| coverage-command | string |   true   |                         | Specify a coverage command to run the<br>test. |
+| coverage-command | string |   true   |                         | Specify a coverage command to run<br>the test. |
 |      token       | string |   true   | `"${{ github.token }}"` |       GITHUB\_TOKEN or a Repo scoped PAT        |
 
 <!-- AUTO-DOC-INPUT:END -->
