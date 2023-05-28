@@ -31,8 +31,7 @@ jobs:
         with:
           token: ${{ secrets.PAT_TOKEN }}
           config_path: ".eslintrc.json"
-          ignore_path: ".eslintignore"
-          extensions: "ts,tsx"
+          ignore_path: ".eslintignor
 
       - name: Run build
         run: |
