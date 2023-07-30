@@ -1,5 +1,113 @@
 # Changelog
 
+# [5.4](https://github.com/tj-actions/coverage-reporter/compare/v5.3...v5.4) - (2023-07-30)
+
+## <!-- 1 -->🐛 Bug Fixes
+
+- Fixed lint errors
+ ([5c627f1](https://github.com/tj-actions/coverage-reporter/commit/5c627f19401aef5efd50eb26c172e4d4edc8e51b))  - (Tonye Jack)
+
+## <!-- 13 -->📦 Bumps
+
+- Bump @types/node from 20.3.0 to 20.3.1
+
+Bumps [@types/node](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/HEAD/types/node) from 20.3.0 to 20.3.1.
+- [Release notes](https://github.com/DefinitelyTyped/DefinitelyTyped/releases)
+- [Commits](https://github.com/DefinitelyTyped/DefinitelyTyped/commits/HEAD/types/node)
+
+---
+updated-dependencies:
+- dependency-name: "@types/node"
+  dependency-type: direct:development
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] <support@github.com> ([0b406e7](https://github.com/tj-actions/coverage-reporter/commit/0b406e74f1a937a7f68f1c01f7c856e6b8eacd07))  - (dependabot[bot])
+- Bump @types/node from 20.2.5 to 20.3.0
+
+Bumps [@types/node](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/HEAD/types/node) from 20.2.5 to 20.3.0.
+- [Release notes](https://github.com/DefinitelyTyped/DefinitelyTyped/releases)
+- [Commits](https://github.com/DefinitelyTyped/DefinitelyTyped/commits/HEAD/types/node)
+
+---
+updated-dependencies:
+- dependency-name: "@types/node"
+  dependency-type: direct:development
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] <support@github.com> ([555f455](https://github.com/tj-actions/coverage-reporter/commit/555f455823b0ca0914e1b551c7b46c60a4d26402))  - (dependabot[bot])
+- Bump @types/node from 20.2.4 to 20.2.5
+
+Bumps [@types/node](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/HEAD/types/node) from 20.2.4 to 20.2.5.
+- [Release notes](https://github.com/DefinitelyTyped/DefinitelyTyped/releases)
+- [Commits](https://github.com/DefinitelyTyped/DefinitelyTyped/commits/HEAD/types/node)
+
+---
+updated-dependencies:
+- dependency-name: "@types/node"
+  dependency-type: direct:development
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] <support@github.com> ([d5575ed](https://github.com/tj-actions/coverage-reporter/commit/d5575edea457571e52e354555f2fad3a3c9a5952))  - (dependabot[bot])
+
+## <!-- 16 -->➕ Add
+
+- Added missing changes and modified dist assets.
+ ([f9bae76](https://github.com/tj-actions/coverage-reporter/commit/f9bae76f52aa8e05d0c91e5eb918f3658c9fd266))  - (GitHub Action)
+
+## <!-- 17 -->➖ Remove
+
+- Deleted .github/workflows/auto-merge.yml ([80f3ea2](https://github.com/tj-actions/coverage-reporter/commit/80f3ea2fc201bb830b946fafe5ed88eb3c622d29))  - (Tonye Jack)
+
+## <!-- 26 -->🔄 Update
+
+- Updated renovate.json ([3cd6227](https://github.com/tj-actions/coverage-reporter/commit/3cd622714649a3ab93850c7d7b4c3a42b9326098))  - (Tonye Jack)
+- Update dependency prettier to v3 ([c9f0ae6](https://github.com/tj-actions/coverage-reporter/commit/c9f0ae649ff48f21d514e5825fc9ccb455ac3ab8))  - (renovate[bot])
+- Update actions/setup-node action to v3.7.0 ([0c86569](https://github.com/tj-actions/coverage-reporter/commit/0c865698300cfef0aecbdc15bb95e601044c9f80))  - (renovate[bot])
+- Update jest monorepo to v29.6.0 ([5b51dc4](https://github.com/tj-actions/coverage-reporter/commit/5b51dc441a65d38f02bd49afda0876be8cd781e3))  - (renovate[bot])
+- Update dependency @typescript-eslint/parser to v5.61.0 ([c551bd1](https://github.com/tj-actions/coverage-reporter/commit/c551bd1467a1f2b7d43f8fae5f949eab3b5a4251))  - (renovate[bot])
+- Update dependency @types/node to v20.3.3 ([bf59656](https://github.com/tj-actions/coverage-reporter/commit/bf596562ff18bda643ef78e4fceb0beac05fe257))  - (renovate[bot])
+- Update dependency eslint to v8.44.0 ([edc118c](https://github.com/tj-actions/coverage-reporter/commit/edc118c1421e062464c5108c59023338fb5accbf))  - (renovate[bot])
+- Update dependency ts-jest to v29.1.1 ([a683063](https://github.com/tj-actions/coverage-reporter/commit/a683063db0e574cba708e38a793baf7619050dfb))  - (renovate[bot])
+- Update dependency typescript to v5.1.6 ([523c19c](https://github.com/tj-actions/coverage-reporter/commit/523c19cb118e31d30c55f5e55f51dfd59b25f50a))  - (renovate[bot])
+- Update dependency typescript to v5.1.5 ([0437140](https://github.com/tj-actions/coverage-reporter/commit/04371401657dfaae70c5b6501b2c066f430e7555))  - (renovate[bot])
+- Update dependency @types/node to v20.3.2 ([05f6967](https://github.com/tj-actions/coverage-reporter/commit/05f6967e4471d0a8b9688a412558699bf632611b))  - (renovate[bot])
+- Update dependency @typescript-eslint/parser to v5.60.1 ([7da25e9](https://github.com/tj-actions/coverage-reporter/commit/7da25e9fd4d48217dca655f05a72012b731fd282))  - (renovate[bot])
+- Update tj-actions/eslint-changed-files action to v20 ([b0cfd59](https://github.com/tj-actions/coverage-reporter/commit/b0cfd59af222206c6aa681c6504702ff043aac87))  - (renovate[bot])
+- Update tj-actions/verify-changed-files action to v16 ([fa94dc8](https://github.com/tj-actions/coverage-reporter/commit/fa94dc8ad3f7c1b5491902e4b5e9d1f8c0fab52c))  - (renovate[bot])
+- Update dependency @typescript-eslint/parser to v5.60.0 ([481ac9a](https://github.com/tj-actions/coverage-reporter/commit/481ac9a5a0ca78d4fcc9e9362df43ffbe97c5a4b))  - (renovate[bot])
+- Update dependency eslint-plugin-jest to v27.2.2 ([e875eaf](https://github.com/tj-actions/coverage-reporter/commit/e875eaf94f5d367e6de697e7f5323eb71c518b1f))  - (renovate[bot])
+- Update dependency eslint to v8.43.0 ([ca2815e](https://github.com/tj-actions/coverage-reporter/commit/ca2815ea45fa6029e654e7842505405def418a08))  - (renovate[bot])
+- Update peter-evans/create-pull-request action to v5.0.2 ([5c4b09a](https://github.com/tj-actions/coverage-reporter/commit/5c4b09ac08aa3b9fb88fc5bbe5452c34ed9ea2e0))  - (renovate[bot])
+- Update dependency @typescript-eslint/parser to v5.59.11 ([9496264](https://github.com/tj-actions/coverage-reporter/commit/94962649da3d861278f9dd3ceac218c85a6c0324))  - (renovate[bot])
+- Update tj-actions/verify-changed-files action to v15 ([c94664a](https://github.com/tj-actions/coverage-reporter/commit/c94664a6ba7d0b470917335009407236d7597826))  - (renovate[bot])
+- Update dependency @typescript-eslint/parser to v5.59.9 ([cbb6070](https://github.com/tj-actions/coverage-reporter/commit/cbb60705ca1b84d77e580d14571297b73a25615e))  - (renovate[bot])
+- Update dependency eslint to v8.42.0 ([86591cd](https://github.com/tj-actions/coverage-reporter/commit/86591cd35636893b22927bbe821075cdb916f7c0))  - (renovate[bot])
+- Update dependency eslint-plugin-github to v4.8.0 ([48045b3](https://github.com/tj-actions/coverage-reporter/commit/48045b3797f916b6f89d9a2eb4e40697e8ae650e))  - (renovate[bot])
+- Update dependency typescript to v5.1.3 ([6ed61fa](https://github.com/tj-actions/coverage-reporter/commit/6ed61fadcdc0addc29bf2642ad392abf0e2a05fa))  - (renovate[bot])
+- Update dependency @types/jest to v29.5.2 ([de6e334](https://github.com/tj-actions/coverage-reporter/commit/de6e3347a6a7a6bccd0166ba1386da51cbb88d72))  - (renovate[bot])
+- Update dependency @typescript-eslint/parser to v5.59.8 ([f705a41](https://github.com/tj-actions/coverage-reporter/commit/f705a414d13a2b14ef9dc88ec53aa0697b7a6021))  - (renovate[bot])
+- Update test.yml ([8c4910e](https://github.com/tj-actions/coverage-reporter/commit/8c4910e16bf6f2858dadb59fc2dbb2f5b92e6032))  - (Tonye Jack)
+- Update test.yml ([16958bb](https://github.com/tj-actions/coverage-reporter/commit/16958bb6a0d9f92103d4977f2e68960e13f58db4))  - (Tonye Jack)
+
+## <!-- 30 -->📝 Other
+
+- Lock file maintenance ([6ee09a8](https://github.com/tj-actions/coverage-reporter/commit/6ee09a8880af8204f07eb1032ac9fd06d8ddf68a))  - (renovate[bot])
+- Lock file maintenance ([fea05db](https://github.com/tj-actions/coverage-reporter/commit/fea05dbe58be97fad4297e65e02f526e4238a4d7))  - (renovate[bot])
+- Lock file maintenance ([48c836f](https://github.com/tj-actions/coverage-reporter/commit/48c836f4125f6eb392a1f07f4ad554a1a866173c))  - (renovate[bot])
+- Lock file maintenance ([53ba5d4](https://github.com/tj-actions/coverage-reporter/commit/53ba5d4b838260c3f9460a9b9ffb70569aa9e297))  - (renovate[bot])
+- Lock file maintenance ([2676474](https://github.com/tj-actions/coverage-reporter/commit/267647495b5a74848089d4f4c4ff4d7b3c605b20))  - (renovate[bot])
+- PR [#1015](https://github.com/tj-actions/coverage-reporter/pull/1015): to v5.3 ([d8809bb](https://github.com/tj-actions/coverage-reporter/commit/d8809bb758b68fe5d473c5265efdd95f84e5a773))  - (repo-ranger[bot])
+- Merge branch 'main' into upgrade-to-v5.3 ([b91d00e](https://github.com/tj-actions/coverage-reporter/commit/b91d00ef0e7d6328b5fea5e8e46040f27de1dc8d))  - (repo-ranger[bot])
+- Merge branch 'main' into upgrade-to-v5.3 ([61cd4ee](https://github.com/tj-actions/coverage-reporter/commit/61cd4eeb5a317fbcfac20283b4d3bcfd74fd98b4))  - (repo-ranger[bot])
+
+## <!-- 9 -->⬆️ Upgrades
+
+- Upgraded from v5.2 -> v5.3
+ ([46f4551](https://github.com/tj-actions/coverage-reporter/commit/46f4551046de9182a483d63ba68272ece2b86605))  - (jackton1)
+
 # [5.3](https://github.com/tj-actions/coverage-reporter/compare/v5.2...v5.3) - (2023-05-28)
 
 ## <!-- 26 -->🔄 Update
