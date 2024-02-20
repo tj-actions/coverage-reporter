@@ -79,7 +79,7 @@ jobs:
 
       - name: Get branch names
         id: branch-name
-        uses: tj-actions/branch-names@v7
+        uses: tj-actions/branch-names@v8
 
       - uses: ./
         if: steps.branch-name.outputs.is_default == 'false' && github.actor != 'dependabot[bot]' && github.actor != 'dependabot'
