@@ -44,8 +44,8 @@ const github = __importStar(__nccwpck_require__(5438));
 const child_process_1 = __nccwpck_require__(2081);
 const utils_1 = __nccwpck_require__(918);
 function run() {
-    var _a;
     return __awaiter(this, void 0, void 0, function* () {
+        var _a;
         try {
             if (core.isDebug()) {
                 core.info('Retrieving input values.');
