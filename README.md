@@ -15,7 +15,7 @@ Display Coverage reports on a Pull Request.
 ```yaml
 ...
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Code coverage-reporter
         uses: tj-actions/coverage-reporter@v5.1
         with:
@@ -27,7 +27,7 @@ Display Coverage reports on a Pull Request.
 ```yaml
 ...
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Code coverage-reporter
         uses: tj-actions/coverage-reporter@v5.1
         with:
